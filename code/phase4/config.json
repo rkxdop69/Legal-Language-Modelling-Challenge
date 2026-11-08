@@ -1,0 +1,10 @@
+{
+  "task": "Court Judgment Prediction and Explanation (CJPE)",
+  "primary_metric": "Macro-F1",
+  "official_score": 0.6136,
+  "top_model": "Hierarchical Chunk Attention Pooling (Exp 5)",
+  "num_chunks": 4,
+  "chunk_size": 512,
+  "total_context": 2048,
+  "decision_threshold": 0.5
+}

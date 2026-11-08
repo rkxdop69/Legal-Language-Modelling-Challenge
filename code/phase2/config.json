@@ -1,0 +1,11 @@
+{
+  "task": "Legal Named Entity Recognition (L-NER)",
+  "num_entity_types": 12,
+  "primary_metric": "Strict Macro-F1",
+  "official_score": 0.3209,
+  "backbone": "Phase 1 Pretrained Legal LLaMA-181M",
+  "chunk_size": 512,
+  "stride": 128,
+  "boundary_snapping": true,
+  "connector_bridging": true
+}

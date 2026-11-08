@@ -1,0 +1,16 @@
+{
+  "task": "Prior Case Retrieval (PCR)",
+  "primary_metric": "Micro-F1@7",
+  "official_score": 0.4548,
+  "top_k": 7,
+  "num_test_queries": 237,
+  "num_test_candidates": 1727,
+  "multi_channel_components": [
+    "Strict Self-Match Masking (S(q, c) = -inf)",
+    "Full-Text Sublinear TF-IDF (1, 2)",
+    "Indian Kanoon Citator Graph Matching",
+    "Statutory Provision Jaccard Alignment",
+    "Temporal Admissibility Filter",
+    "LoRMA Dense Hybrid Bi-Encoder"
+  ]
+}

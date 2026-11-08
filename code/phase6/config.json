@@ -1,0 +1,17 @@
+{
+  "task": "Abstractive Legal Summarization",
+  "primary_metric": "BERTScore F1",
+  "official_score": 0.8074,
+  "secondary_metrics": [
+    "ROUGE-1",
+    "ROUGE-L"
+  ],
+  "backbone": "Phase 1 Pretrained Legal LLaMA-181M",
+  "lead_windowing": "Head-Tail Preamble + Ratio Alignment",
+  "generation_hyperparameters": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "repetition_penalty": 1.22,
+    "target_tokens": 65
+  }
+}

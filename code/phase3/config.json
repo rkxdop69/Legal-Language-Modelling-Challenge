@@ -1,0 +1,13 @@
+{
+  "task": "Rhetorical Role Prediction (RR)",
+  "num_classes": 13,
+  "primary_metric": "Macro-F1",
+  "official_score": 0.5735,
+  "backbone": "Phase 1 Pretrained Legal LLaMA-181M",
+  "adaptation": [
+    "LoRMA (r=16, alpha=32)",
+    "rsLoRA (r=32, alpha=16)",
+    "Discourse Calibration"
+  ],
+  "class_weighting_power": 0.35
+}

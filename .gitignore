@@ -1,0 +1,44 @@
+# Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+venv/
+.venv/
+env/
+
+# Model weights and checkpoints (Strictly excluded)
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+*.h5
+checkpoints/
+*/checkpoints/
+**/checkpoints/**
+
+# Tools and temporary files
+tools/
+scratch/
+.system_generated/
+*.tmp
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.xdv
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Large dataset dumps and cache
+data/
+cache/
+*.parquet
+
+# Output zip archives (except code structure)
+*.zip
+cs781_phase*_output/
+legacy/
+miscellaneous/
