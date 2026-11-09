@@ -30,15 +30,16 @@ The system addresses **seven core computational legal tasks** spanning the entir
 
 All downstream phases (Phases 2–7) adapt strictly from our **Phase 1 Pretrained Foundation Model**, satisfying all competition constraints (50M–300M parameters, no external pretrained weights, no external legal data, minimum 6 distinct submissions per phase).
 
-| Phase | Task | Primary Metric | Official CodaBench Score | Key Architecture / Adaptation Paradigm | Valid Submissions |
-|:---:|:---|:---:|:---:|:---|:---:|
-| **1** | Legal LM Pretraining | BERTScore F1 | **0.8249** | Custom LLaMA-181M (RoPE, RMSNorm, SwiGLU, 30M Multi-Source Token Continual Pretraining) | 6 |
-| **2** | Legal Named Entity Recognition (L-NER) | Strict Macro-F1 | **0.3209** | Bidirectional Attention Adapter + Sliding Window + Word-Boundary Snapping & NMS | 6 |
-| **3** | Rhetorical Role Prediction (RR) | Macro-F1 | **0.5735** | Discourse Relative Position Projections + Smoothed Inverse-Frequency Loss + Discourse Calibration | 6 |
-| **4** | Court Judgment Prediction (CJPE) | Macro-F1 | **0.6136** | Hierarchical Chunk Attention Pooling (4 chunks $\times$ 512 tokens = 2048 tokens) + Calibrated Thresholding | 6 |
-| **5** | Legal Statute Identification (LSI) | Macro-F1 | **0.4014** | Multi-Label Independent Sigmoids + Adaptive Per-Statute Thresholding + LoRMA ($r=16$) | 6 |
-| **6** | Abstractive Legal Summarization | BERTScore F1 | **0.8074** | Discourse-Guided Lead-Tail Windowing + Repetition Penalty Tuning (1.22) + Length Control | 6 |
-| **7** | Prior Case Retrieval (PCR) | Micro-F1@7 | **0.4548** | Multi-Channel Sparse-Dense Engine: Self-Match Masking + Kanoon Citator Graph + Statutory Jaccard | 6 |
+| Phase | Task | Primary Metric | Official CodaBench Score | Leaderboard Rank | Key Architecture / Winning Method | Valid Submissions |
+|:---:|:---|:---:|:---:|:---:|:---|:---:|
+| **1** | Legal LM Pretraining | BERTScore F1 | **0.8249** | 118 | Custom LLaMA-181M (RoPE, RMSNorm, SwiGLU, 200M Scratch + 30M Multi-Source Continual) | **8** |
+| **2** | Legal Named Entity Recognition (L-NER) | Strict Macro-F1 | **0.3209** | 121 | Word-Boundary Snapping + Legal Connector Bridging (Fold 1+2 Stage 2 Fine-Tuning) | **8** |
+| **3** | Rhetorical Role Prediction (RR) | Macro-F1 | **0.5735** | 17 | Structural Discourse Calibration Engine (Hierarchical BiLSTM + Boundary Shift Loss) | **10** |
+| **4** | Court Judgment Prediction (CJPE) | Macro-F1 | **0.6136** | 117 | Hierarchical Chunk Attention Pooling (4 chunks $\times$ 512 tokens = 2048 tokens) | **6** |
+| **5** | Legal Statute Identification (LSI) | Macro-F1 | **0.4014** | 33 | Master Calibrated Full-Corpus Pipeline (Adaptive Per-Statute Thresholding $\tau_c$) | **7** |
+| **6** | Abstractive Legal Summarization | BERTScore F1 | **0.8074** | 118 | Baseline Top-4 Layers Fine-Tuning (Lead 512 Windowing, Repetition Penalty 1.22) | **6** |
+| **7** | Prior Case Retrieval (PCR) | Micro-F1@7 | **0.4548** | 29 | Multi-Channel Breakthrough Pipeline (Self-Mask + Kanoon Citator + Statutory Jaccard) | **7** |
+| **Total** | **All Seven Phases** | — | — | — | **52 Valid Submissions Evaluated on Official CodaBench Platform** | **52** |
 
 ---
 
