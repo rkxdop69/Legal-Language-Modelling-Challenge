@@ -497,16 +497,13 @@ In this capstone project, we successfully engineered, benchmarked, and deployed 
 % ============================================================
 \section*{LLM Usage Declaration}
 \noindent
-\textbf{Q1.} Which Large Language Model(s), if any, did you use while completing the competition or writing this report? Give model name and vendor (e.g., none / ChatGPT-4.x / Gemini~x / Claude~x / Grok / Copilot / other). \\[0.6em]
-Answer: \underline{Google DeepMind Antigravity Coding Assistant (Gemini 2.5 Pro)}
-\medskip
+\textbf{Q1.} Which Large Language Model(s), if any, did you use while completing the competition or writing this report? Give model name and vendor (e.g., none / ChatGPT-4.x / Gemini~x / Claude~x / Grok / Copilot / other). \\[0.25em]
+Answer: Google DeepMind Antigravity Coding Assistant (Gemini 2.5 Pro)
+\smallskip
 
 \noindent
-\textbf{Q2.} For each row, mark Yes or No and state the purpose in one short phrase. ``Yes'' is acceptable only for the uses permitted by the capstone document.
-\begin{table}[H]
-\centering
-\footnotesize
-\resizebox{\textwidth}{!}{
+\textbf{Q2.} For each row, mark Yes or No and state the purpose in one short phrase. ``Yes'' is acceptable only for the uses permitted by the capstone document. \\[0.2em]
+\noindent{\scriptsize\renewcommand{\arraystretch}{0.70}\resizebox{\textwidth}{!}{
 \begin{tabular}{>{\raggedright\arraybackslash}p{5.0cm}|c|>{\raggedright\arraybackslash}p{7.0cm}}
 \toprule
 Part & Used LLM? & Purpose of using the LLM \\
@@ -525,17 +522,16 @@ Other (specify) & No & None \\
 \bottomrule
 \end{tabular}
 }
-\end{table}
-\medskip
+\smallskip
 
 \noindent
 \textbf{Q3.} Did you refer to sources other than lecture slides and an LLM?
-If yes, list them (papers, blogs, GitHub repositories, textbooks, official starter notebook, evaluation scripts). These must also appear in the bibliography when they influenced the method. \\[0.4em]
-Answer: \underline{Yes. We referred to landmark legal NLP publications including ILDC (Malik et al., 2021)~\cite{malik2021ildc},} \underline{IN-Abs (Bhattacharya et al., 2019)~\cite{bhattacharya2019inabs}, Legal Rhetorical Roles (Kalam et al., 2022)~\cite{kalam2022rhetorical},} \underline{LoRMA (Bihany et al., 2025)~\cite{bihany2025lorma}, rsLoRA (Dam et al., 2023)~\cite{dam2023rslora}, RoFormer (Su et al., 2024)~\cite{su2024roformer},} \underline{PyTorch documentation, HuggingFace Transformers codebase, and official course evaluation scripts.}
-\medskip
+If yes, list them (papers, blogs, GitHub repositories, textbooks, official starter notebook, evaluation scripts). These must also appear in the bibliography when they influenced the method. \\[0.25em]
+Answer: Yes. We referred to landmark legal NLP publications including ILDC (Malik et al., 2021) \cite{malik2021ildc}, IN-Abs (Bhattacharya et al., 2019) \cite{bhattacharya2019inabs}, Legal Rhetorical Roles (Kalam et al., 2022) \cite{kalam2022rhetorical}, LoRMA (Bihany et al., 2025) \cite{bihany2025lorma}, rsLoRA (Dam et al., 2023) \cite{dam2023rslora}, RoFormer (Su et al., 2024) \cite{su2024roformer}, PyTorch documentation, HuggingFace Transformers codebase, and official course evaluation scripts.
+\smallskip
 
 \noindent
-\textbf{Q4.} Apart from any permitted LLM use, what was \emph{your} contribution? In 8--12 sentences describe your own understanding, architecture decisions, implementation, experiments, and analysis. Name at least two things you tried that failed and what you concluded from them. \\[0.4em]
+\textbf{Q4.} Apart from any permitted LLM use, what was \emph{your} contribution? In 8--12 sentences describe your own understanding, architecture decisions, implementation, experiments, and analysis. Name at least two things you tried that failed and what you concluded from them. \\[0.25em]
 Answer: I conceptualized, implemented, and benchmarked the entire seven-phase legal NLP system from scratch. I designed the custom 181.2M LLaMA architecture with RoPE, RMSNorm, and SwiGLU activations, verifying the parameter mathematical bound within the 50M--300M cap. I engineered the streaming multi-source continual pretraining pipeline that ingested 30M tokens across Statutory Acts, High Courts, and Tribunals, which directly elevated our Phase-1 score to 0.8249 BERTScore on CodaBench. To resolve the long-document truncation bottleneck in Court Judgment Prediction (Phase 4), I designed the Hierarchical Chunk Attention Pooling architecture spanning 2048 tokens, breaking the sequence length barrier to achieve 0.6136 Macro-F1. In Prior Case Retrieval (Phase 7), I uncovered the critical self-match anomaly and designed the multi-channel retrieval engine integrating self-match masking, sublinear TF-IDF, Kanoon citator graphs, statutory Jaccard overlap, and temporal filtering, boosting performance to 0.4548 Micro-F1@7. Among my failed attempts, standard unweighted cross-entropy in Phase~3 collapsed rare rhetorical roles (\texttt{Dissent}, \texttt{PrecedentOverruled}) to zero F1 due to severe class imbalance; I resolved this by deriving smoothed inverse-frequency class weights ($w_c = (N/N_c)^{0.35}$). Additionally, naive greedy decoding in Phase~1 produced severe repetitive loops of statutory boilerplate; I resolved this by implementing nucleus sampling ($T=0.7, p=0.9$) with repetition penalties. I conducted all 52 official CodaBench submissions, performed rigorous local evaluations, and authored the comprehensive empirical analysis.
 
 \clearpage
